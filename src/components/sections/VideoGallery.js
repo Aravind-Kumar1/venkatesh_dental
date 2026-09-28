@@ -33,25 +33,29 @@ export default function VideoGallery() {
       id: 1,
       title: "Client Feedback",
       description: "A wonderful experience at Venkateswara Dental Hospital.",
-      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/ven_test_one_e97c12.mp4"
+      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/ven_test_one_e97c12.mp4",
+      posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145827/ven_test_one_e97c12.jpg"
     },
     {
       id: 2,
       title: "Experience Success",
       description: "Restoring confidence through expert dental care.",
-      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/WhatsApp_Video_2026-04-13_at_6.00.01_PM_hxwkwo.mp4"
+      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/WhatsApp_Video_2026-04-13_at_6.00.01_PM_hxwkwo.mp4",
+      posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145827/WhatsApp_Video_2026-04-13_at_6.00.01_PM_hxwkwo.jpg"
     },
     {
       id: 3,
       title: "Patient Journey",
       description: "Hear from our patients about their treatment journey.",
-      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/WhatsApp_Video_2026-04-13_at_10.22.09_AM_xueedw.mp4"
+      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/WhatsApp_Video_2026-04-13_at_10.22.09_AM_xueedw.mp4",
+      posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145827/WhatsApp_Video_2026-04-13_at_10.22.09_AM_xueedw.jpg"
     },
     {
       id: 4,
       title: "Transformation Results",
       description: "Witness the power of a healthy, beautiful smile.",
-      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145826/WhatsApp_Video_2026-04-13_at_10.23.35_AM_iuqzfm.mp4"
+      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145826/WhatsApp_Video_2026-04-13_at_10.23.35_AM_iuqzfm.mp4",
+      posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145826/WhatsApp_Video_2026-04-13_at_10.23.35_AM_iuqzfm.jpg"
     }
   ];
 
@@ -83,7 +87,8 @@ export default function VideoGallery() {
                     onPlay={() => handleStateChange(index, true)}
                     onPause={() => handleStateChange(index, false)}
                     onEnded={() => handleStateChange(index, false)}
-                    preload="metadata" 
+                    preload="auto" 
+                    poster={video.posterUrl}
                     playsInline
                     className={styles.videoPlayer}
                   >

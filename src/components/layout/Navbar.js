@@ -42,8 +42,12 @@ export default function Navbar() {
             <a href="#contact" className={styles.btnPrimary}>
               Book Appointment
             </a>
-            <button className={styles.mobileMenuBtn} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? <X /> : <Menu />}
+            <a href="tel:+919676316416" className={styles.mobilePhoneBtn} aria-label="Call Clinic">
+              <Phone size={16} />
+              <span>Call</span>
+            </a>
+            <button className={styles.mobileMenuBtn} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Menu">
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>

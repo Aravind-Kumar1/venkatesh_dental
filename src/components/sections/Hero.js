@@ -49,6 +49,8 @@ const Hero = ({ page = "home" }) => {
               loop
               muted
               playsInline
+              preload="auto"
+              poster="https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1777379594/Untitled_design_th1kii.jpg"
               className={styles.videoElement}
             >
               <source src="https://res.cloudinary.com/dbg1xwcrj/video/upload/v1777379594/Untitled_design_th1kii.mp4" type="video/mp4" />
@@ -103,6 +105,8 @@ const Hero = ({ page = "home" }) => {
                       loop
                       muted
                       playsInline
+                      preload="auto"
+                      poster="https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1777379594/Untitled_design_th1kii.jpg"
                       className={styles.mobileVideoElement}
                     >
                       <source src="https://res.cloudinary.com/dbg1xwcrj/video/upload/v1777379594/Untitled_design_th1kii.mp4" type="video/mp4" />

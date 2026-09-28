@@ -250,7 +250,36 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+.mobilePhoneBtn {
+  display: none;
+  align-items: center;
+  gap: 0.35rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 0.5rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(26, 73, 150, 0.25);
+  transition: all 0.2s ease;
+}
+
+.mobilePhoneBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 73, 150, 0.35);
+}
+
 @media (max-width: 1024px) {
+  .header {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 0.65rem 0 !important;
+  }
+
   .logo {
     height: 40px;
   }
@@ -264,8 +293,18 @@
   }
   
   .mobileMenuBtn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary) !important;
+    background: #f0f9ff;
+    padding: 0.5rem;
+    border-radius: 0.6rem;
     z-index: 1001;
+  }
+
+  .mobilePhoneBtn {
+    display: inline-flex;
   }
 
   /* Hide desktop buttons on mobile to prevent overlap */
