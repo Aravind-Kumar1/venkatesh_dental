@@ -1,0 +1,271 @@
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.detailItem {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.detailIcon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.detailText h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.detailText p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.subTitle {
+  display: block;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #202124;
+  margin-bottom: 0.5rem;
+}
+
+.contactInfo h2 {
+  font-size: clamp(1.8rem, 8vw, 3rem);
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .contactInfo {
+    text-align: center;
+  }
+  .contactInfo h2 {
+    margin-bottom: 1rem;
+  }
+  .contactDetails {
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .detailItem {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .detailIcon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Appointment Form Styles */
+.formContainer {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border-radius: 2rem;
+  padding: 2.5rem 2.5rem 3.5rem; /* Increased bottom padding */
+  box-shadow: 0 20px 40px rgba(26, 73, 150, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.appointmentBox h3 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.appointmentBox p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1.25rem; /* Better vertical separation */
+}
+
+.formGroup label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.formGroup label svg {
+  color: white;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: 1.25rem; /* Transfer margin handling to row */
+}
+
+.formRow .formGroup {
+  margin-bottom: 0; /* Prevent double spacing inside rows */
+}
+
+.appointmentForm input,
+.appointmentForm select {
+  width: 100%; /* Force full width within flex container */
+  display: block;
+  box-sizing: border-box;
+  padding: 0.85rem 1.15rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--gray-50);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.selectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.selectIcon {
+  position: absolute;
+  right: 1.25rem;
+  color: var(--primary);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.premiumSelect {
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--gray-50);
+  font-size: 1rem;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.selectWrapper:focus-within .selectIcon {
+  transform: rotate(180deg);
+}
+
+.premiumSelect:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: white;
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.appointmentForm input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.submitBtn {
+  margin-top: 2rem; /* Pushes button down for better separation */
+  padding: 1.25rem;
+  background: #ffffff;
+  color: var(--primary);
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+.submitBtn svg {
+  transition: transform 0.25s ease;
+}
+
+.submitBtn:hover {
+  background: #ffffff;
+  color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+.submitBtn:hover svg {
+  transform: translateX(4px) scale(1.08);
+}
+
+.submitBtn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.submitBtn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitBtn.success {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+}
+
+.submitBtn.success:hover {
+  background: #059669;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.5);
+  transform: none;
+}
+
+@media (max-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .formContainer {
+    padding: 2rem;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,36 @@
+.highlightsSection {
+  padding: 2rem 0;
+  background: var(--primary-light);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .highlightsGrid {
+    gap: 1rem;
+  }
+  
+  .highlightItem {
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.highlightIcon {
+  color: var(--secondary);
+  flex-shrink: 0;
+}

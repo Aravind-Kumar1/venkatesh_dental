@@ -1,0 +1,599 @@
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000; /* Fallback for video */
+  padding-top: 0;
+}
+
+.heroHome {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .heroHome {
+    height: 100vh;
+    padding-top: 0;
+  }
+}
+
+.heroOther {
+  min-height: 0;
+}
+
+@media (min-width: 640px) {
+  .heroOther {
+    min-height: 420px;
+  }
+}
+
+.containerCustom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.slideContent {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.textWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 5rem;
+  z-index: 10;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .textWrapper {
+    width: 56%;
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 9rem; /* Pushed down slightly */
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  .textWrapper {
+    width: 56%;
+    padding-top: 10rem; /* Pushed down significantly further */
+    transform: translateY(0);
+  }
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.title span {
+  color: #1A4996; /* Primary blue for contrast on light */
+}
+
+@media (max-width: 640px) {
+  .title {
+    color: #0f172a;
+  }
+  .title span {
+    color: var(--primary);
+  }
+}
+
+.description {
+  display: none;
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  max-width: 36rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 640px) {
+  .description {
+    display: block;
+  }
+}
+
+.btnGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  padding-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .btnGroup {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem; /* Slightly larger for Hero prominence */
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 0.75rem; /* Matched to Navbar button shape */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(52, 68, 140, 0.2);
+}
+
+.btnPrimary {
+  opacity: 1; /* Inherits base color from .btn */
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Video Background Styles */
+.videoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none; /* Hidden on mobile */
+}
+
+@media (min-width: 640px) {
+  .videoBackground {
+    display: block;
+  }
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 2;
+}
+
+.mobileVideoCard {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .mobileVideoCard {
+    display: none;
+  }
+}
+
+.mobileVideoElement {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    background: var(--primary-dark); /* Solid background for mobile text readability */
+  }
+  
+  .heroHome {
+    height: auto;
+    padding-bottom: 4rem;
+  }
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44%;
+  height: 100%;
+  z-index: 1;
+  display: none !important; /* Strictly hidden on mobile to avoid duplication */
+  align-items: flex-end; /* Pin to bottom */
+}
+
+@media (min-width: 640px) {
+  .imageWrapper {
+    display: flex !important; /* Restored on tablet/desktop */
+    transform: translateX(-20px) translateY(-3rem); /* Nudged image up a bit more */
+  }
+}
+
+.heroImage {
+  object-fit: contain;
+  object-position: bottom center;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .description {
+    display: block;
+    color: var(--muted);
+    font-size: 1rem;
+    text-shadow: none;
+  }
+}
+
+.mobileImageWrapper {
+  display: flex;
+  margin: 0 -1.5rem;
+  width: calc(100% + 3rem);
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .mobileImageWrapper {
+    display: none;
+  }
+}
+
+.mobileImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  max-height: 200px;
+}
+
+/* Custom Doctor Slide Styles */
+.doctorSlide {
+  position: relative;
+  width: 100%;
+  background: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+@media (min-width: 640px) {
+  .doctorSlide {
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.doctorGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  height: 100%;
+  padding-top: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  .doctorGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding-top: 0;
+  }
+}
+
+.docImageWrapper {
+  order: 1;
+  position: relative;
+  width: 100%;
+  height: 42vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 20;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .docImageWrapper {
+    order: 2;
+    height: 70vh;
+    margin-top: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .docImageWrapper {
+    height: 76vh;
+    transform: translateY(8px);
+  }
+}
+
+.docContent {
+  order: 2;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .docContent {
+    order: 1;
+    text-align: left;
+    padding-bottom: 0;
+  }
+}
+
+.docTitle {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #F5F5F5;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .docTitle {
+    font-size: 3.375rem;
+  }
+}
+
+.docTitle span {
+  margin-right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .docTitle span {
+    margin-right: 1rem;
+  }
+}
+
+.docDescription {
+  color: #F5F5F5;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .docDescription {
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+.docName {
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #90B4E7;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .docName {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .docName {
+    font-size: 1.25rem;
+  }
+}
+
+.statsColumn {
+  display: none;
+  order: 3;
+  z-index: 10;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .statsColumn {
+    display: flex;
+  }
+}
+
+.statPoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.statIcon {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.statText h3 {
+  font-size: 1.125rem;
+  line-height: 1.2;
+}
+
+.statPoint h3 span:first-child {
+  font-weight: bold;
+  color: #F5F5F5;
+}
+
+.statPoint h3 span:last-child {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.statPoint p {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  margin-top: 0.125rem;
+}
+
+/* Features Bar removed */
+
+
+.statsBarContent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  divide: x;
+  padding: 1rem 0;
+}
+
+@media (min-width: 640px) {
+  .statsBarContent {
+    padding: 2rem 0;
+  }
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-right: 1px solid #f1f5f9;
+}
+
+.statItem:last-child {
+  border-right: none;
+}
+
+.statValue {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 640px) {
+  .statValue {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .statValue {
+    font-size: 3rem;
+  }
+}
+
+.statLabel {
+  font-size: 8px;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .statLabel {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    background: var(--primary-light) !important;
+  }
+  
+  .heroHome {
+    height: auto !important;
+    padding-top: 4rem !important; /* Slightly nudged up */
+    padding-bottom: 2rem !important;
+  }
+
+  .textWrapper {
+    padding-top: 0 !important;
+  }
+
+  .title {
+    font-size: 1.5rem !important; /* Decreased heading size */
+    text-shadow: none !important;
+  }
+
+  .description {
+    font-size: 0.95rem !important;
+  }
+
+  .mobileVideoCard {
+    margin-top: 1.5rem !important; /* Reduced from 2rem */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+  }
+
+
+}
