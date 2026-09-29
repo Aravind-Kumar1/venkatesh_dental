@@ -2,49 +2,32 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { Star, ShieldCheck, Clock, Award, Sparkles } from "lucide-react";
 import styles from "./Highlights.module.css";
 
 const highlights = [
-  "Highly Rated Dental Clinic (5.0 ⭐ Reviews)",
-  "Painless Treatment Approach",
-  "Advanced Dental Technology",
-  "Affordable & Transparent Pricing",
-  "Personalized Treatment Plans"
+  { icon: <Star size={20} className={styles.starIcon} />, title: "5.0 ★ Google Rating", desc: "199+ verified patient reviews" },
+  { icon: <Award size={20} className={styles.highlightIcon} />, title: "18+ Years Experience", desc: "Established in Sanath Nagar (2007)" },
+  { icon: <Sparkles size={20} className={styles.highlightIcon} />, title: "Painless RCT Tech", desc: "Advanced dental anesthesia & lasers" },
+  { icon: <ShieldCheck size={20} className={styles.highlightIcon} />, title: "100% Hospital Hygiene", desc: "Strict sterilization & safety" },
+  { icon: <Clock size={20} className={styles.highlightIcon} />, title: "Open Daily to 9 PM", desc: "Flexible morning & evening slots" }
 ];
 
 export default function Highlights() {
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
   return (
     <section className={styles.highlightsSection}>
       <div className="container">
-        <motion.div 
-          className={styles.highlightsGrid}
-          variants={stagger}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-        >
-          {highlights.map((text, i) => (
-            <motion.div key={i} className={styles.highlightItem} variants={fadeIn}>
-              <div className={styles.highlightIcon}><CheckCircle2 size={20} /></div>
-              <span>{text}</span>
-            </motion.div>
+        <div className={styles.highlightsGrid}>
+          {highlights.map((item, i) => (
+            <div key={i} className={styles.highlightCard}>
+              <div className={styles.iconCircle}>{item.icon}</div>
+              <div className={styles.cardContent}>
+                <h4>{item.title}</h4>
+                <p>{item.desc}</p>
+              </div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

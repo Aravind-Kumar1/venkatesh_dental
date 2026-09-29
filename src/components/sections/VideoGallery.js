@@ -1,19 +1,54 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./VideoGallery.module.css";
-import { Play, Pause } from "lucide-react";
+import { Play, Pause, Video, CheckCircle2 } from "lucide-react";
+
+const videos = [
+  {
+    id: 1,
+    title: "Patient Experience & Painless RCT",
+    subtitle: "Sanath Nagar Resident",
+    description: "Complete painless treatment experience at Venkateswara Dental Hospital.",
+    videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/ven_test_one_e97c12.mp4",
+    posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145827/ven_test_one_e97c12.jpg"
+  },
+  {
+    id: 2,
+    title: "Dental Cap & Restoration Success",
+    subtitle: "Restorative Patient",
+    description: "Restoring smile confidence through expert dental bridge and capping.",
+    videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/WhatsApp_Video_2026-04-13_at_6.00.01_PM_hxwkwo.mp4",
+    posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145827/WhatsApp_Video_2026-04-13_at_6.00.01_PM_hxwkwo.jpg"
+  },
+  {
+    id: 3,
+    title: "Smile Care & Comfort Feedback",
+    subtitle: "Regular Checkup & Scaling",
+    description: "Patient sharing how friendly and reassuring Dr. Venkateswara and team are.",
+    videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/WhatsApp_Video_2026-04-13_at_10.22.09_AM_xueedw.mp4",
+    posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145827/WhatsApp_Video_2026-04-13_at_10.22.09_AM_xueedw.jpg"
+  },
+  {
+    id: 4,
+    title: "Tooth Extraction & Implants Story",
+    subtitle: "Implant Patient",
+    description: "Witnessing real results of healthy dental rehabilitation.",
+    videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145826/WhatsApp_Video_2026-04-13_at_10.23.35_AM_iuqzfm.mp4",
+    posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145826/WhatsApp_Video_2026-04-13_at_10.23.35_AM_iuqzfm.jpg"
+  }
+];
 
 export default function VideoGallery() {
-  const videoRefs = React.useRef([]);
+  const videoRefs = useRef([]);
   const [playingStates, setPlayingStates] = useState({});
+  const [isPausedHover, setIsPausedHover] = useState(false);
 
   const togglePlay = (index) => {
     const video = videoRefs.current[index];
     if (!video) return;
 
     if (video.paused) {
-      // Pause all other videos
       videoRefs.current.forEach((v, i) => {
         if (v && i !== index) {
           v.pause();
@@ -28,82 +63,67 @@ export default function VideoGallery() {
   const handleStateChange = (index, isPlaying) => {
     setPlayingStates(prev => ({ ...prev, [index]: isPlaying }));
   };
-  const videos = [
-    {
-      id: 1,
-      title: "Client Feedback",
-      description: "A wonderful experience at Venkateswara Dental Hospital.",
-      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/ven_test_one_e97c12.mp4",
-      posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145827/ven_test_one_e97c12.jpg"
-    },
-    {
-      id: 2,
-      title: "Experience Success",
-      description: "Restoring confidence through expert dental care.",
-      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/WhatsApp_Video_2026-04-13_at_6.00.01_PM_hxwkwo.mp4",
-      posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145827/WhatsApp_Video_2026-04-13_at_6.00.01_PM_hxwkwo.jpg"
-    },
-    {
-      id: 3,
-      title: "Patient Journey",
-      description: "Hear from our patients about their treatment journey.",
-      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145827/WhatsApp_Video_2026-04-13_at_10.22.09_AM_xueedw.mp4",
-      posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145827/WhatsApp_Video_2026-04-13_at_10.22.09_AM_xueedw.jpg"
-    },
-    {
-      id: 4,
-      title: "Transformation Results",
-      description: "Witness the power of a healthy, beautiful smile.",
-      videoUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/v1776145826/WhatsApp_Video_2026-04-13_at_10.23.35_AM_iuqzfm.mp4",
-      posterUrl: "https://res.cloudinary.com/dbg1xwcrj/video/upload/so_1/v1776145826/WhatsApp_Video_2026-04-13_at_10.23.35_AM_iuqzfm.jpg"
-    }
-  ];
-
 
   const isAnyVideoPlaying = Object.values(playingStates).some(state => state);
 
   return (
-    <section id="success-stories" className={`${styles.videoSection} section-padding`}>
+    <section id="success-stories" className={`section-padding ${styles.videoSection}`}>
       <div className="container">
         <div className={styles.sectionHeader}>
-          <span className={styles.subTitle}>Success Stories</span>
-          <h2>Patient Transformations</h2>
-          <p>Real voices, real results. Watch how we've helped our patients smile brighter.</p>
+          <span className={styles.subTitle}>Verified Testimonials</span>
+          <h2>Real Patients, Real Transformations</h2>
+          <p className={styles.headerLead}>
+            Hear authentic stories directly from our patients in Sanath Nagar who experienced painless treatments and regained their confident smiles.
+          </p>
         </div>
 
-        <div className={`${styles.videoGrid} ${isAnyVideoPlaying ? styles.paused : ""}`}>
-          {[...videos, ...videos].map((video, index) => (
-            <div key={`${video.id}-${index}`} className={styles.videoItem}>
-              <div className={styles.videoInfo}>
-                <h3>{video.title}</h3>
-              </div>
-              <div className={styles.videoCard}>
-                <div 
-                  className={styles.videoWrapper} 
-                  onClick={() => togglePlay(index)}
-                >
-                  <video 
-                    ref={el => videoRefs.current[index] = el}
-                    onPlay={() => handleStateChange(index, true)}
-                    onPause={() => handleStateChange(index, false)}
-                    onEnded={() => handleStateChange(index, false)}
-                    preload="auto" 
-                    poster={video.posterUrl}
-                    playsInline
-                    className={styles.videoPlayer}
+        <div className={styles.videoTrackContainer}>
+          <div 
+            className={`${styles.videoGrid} ${isAnyVideoPlaying || isPausedHover ? styles.paused : ""}`}
+            onMouseEnter={() => setIsPausedHover(true)}
+            onMouseLeave={() => setIsPausedHover(false)}
+            onTouchStart={() => setIsPausedHover(true)}
+          >
+            {[...videos, ...videos].map((video, index) => (
+              <div key={`${video.id}-${index}`} className={styles.videoItem}>
+                <div className={styles.videoCard}>
+                  <div 
+                    className={styles.videoWrapper} 
+                    onClick={() => togglePlay(index)}
                   >
-                    <source src={video.videoUrl} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  <div className={`${styles.videoOverlay} ${playingStates[index] ? styles.playing : ""}`}>
-                    <div className={styles.playButton}>
-                      {playingStates[index] ? <Pause size={32} /> : <Play size={32} fill="currentColor" />}
+                    <video 
+                      ref={el => videoRefs.current[index] = el}
+                      onPlay={() => handleStateChange(index, true)}
+                      onPause={() => handleStateChange(index, false)}
+                      onEnded={() => handleStateChange(index, false)}
+                      preload="metadata" 
+                      poster={video.posterUrl}
+                      playsInline
+                      className={styles.videoPlayer}
+                    >
+                      <source src={video.videoUrl} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <div className={`${styles.videoOverlay} ${playingStates[index] ? styles.playing : ""}`}>
+                      <div className={styles.playButton} aria-label={playingStates[index] ? "Pause Video" : "Play Video"}>
+                        {playingStates[index] ? <Pause size={28} /> : <Play size={28} fill="currentColor" />}
+                      </div>
                     </div>
+                  </div>
+
+                  <div className={styles.videoInfo}>
+                    <div className={styles.videoBadge}>
+                      <CheckCircle2 size={13} className={styles.checkIcon} />
+                      <span>Verified Review</span>
+                    </div>
+                    <h3>{video.title}</h3>
+                    <p className={styles.videoSubtitle}>{video.subtitle}</p>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

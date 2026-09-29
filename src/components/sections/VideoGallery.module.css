@@ -1,44 +1,79 @@
 .videoSection {
+  background: #f8fbff;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
   position: relative;
   overflow: hidden;
-  background: var(--primary-light);
-  padding-bottom: 0.5rem !important;
 }
 
 .sectionHeader {
-  text-align: left;
-  margin-bottom: 2rem;
-  max-width: 800px;
-}
-
-.sectionHeader h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--foreground);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.025em;
-}
-
-.sectionHeader p {
-  color: var(--muted);
-  font-size: 1.1rem;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 1.75rem;
 }
 
 .subTitle {
-  display: block;
-  font-weight: 700;
-  font-size: 1.25rem;
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
   color: var(--primary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  background: #eff6ff;
+  padding: 0.3rem 0.95rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(26, 73, 150, 0.12);
+}
+
+.sectionHeader h2 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.headerLead {
+  color: #64748b;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.videoTrackContainer {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 0 1.5rem;
+}
+
+.videoTrackContainer::before,
+.videoTrackContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.videoTrackContainer::before {
+  left: 0;
+  background: linear-gradient(90deg, #f8fbff 0%, transparent 100%);
+}
+
+.videoTrackContainer::after {
+  right: 0;
+  background: linear-gradient(270deg, #f8fbff 0%, transparent 100%);
 }
 
 .videoGrid {
   display: flex;
-  gap: 1.25rem;
-  margin-bottom: 2rem;
-  padding: 1.5rem 0 3rem;
+  gap: 1.5rem;
   width: max-content;
-  animation: scroll 30s linear infinite;
+  animation: scrollTrack 32s linear infinite;
 }
 
 .videoGrid:hover,
@@ -46,87 +81,39 @@
   animation-play-state: paused;
 }
 
-@keyframes scroll {
+@keyframes scrollTrack {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 .videoItem {
-  flex: 0 0 320px;
-  min-width: 320px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.videoItem:hover {
-  transform: translateY(-8px);
+  flex: 0 0 310px;
+  min-width: 310px;
 }
 
 .videoCard {
-  background: white;
-  border-radius: 1.5rem;
+  background: #ffffff;
+  border-radius: 1.25rem;
   overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
 }
 
-.videoItem:hover .videoCard {
-  box-shadow: var(--shadow-xl);
+.videoCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px -8px rgba(26, 73, 150, 0.2);
+  border-color: rgba(26, 73, 150, 0.3);
 }
 
 .videoWrapper {
   position: relative;
-  aspect-ratio: 4/5;
-  background: #111;
+  aspect-ratio: 9/14;
+  background: #09172f;
   overflow: hidden;
   cursor: pointer;
-}
-
-.videoOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 2;
-}
-
-.playing.videoOverlay {
-  opacity: 0;
-  background: transparent;
-}
-
-.videoWrapper:hover .playing.videoOverlay {
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.playButton {
-  width: 70px;
-  height: 70px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-}
-
-.videoWrapper:hover .playButton {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .videoPlayer {
@@ -138,54 +125,91 @@
   object-fit: cover;
 }
 
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 23, 47, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.playing.videoOverlay {
+  opacity: 0;
+}
+
+.videoWrapper:hover .playing.videoOverlay {
+  opacity: 1;
+  background: rgba(9, 23, 47, 0.3);
+}
+
+.playButton {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.videoWrapper:hover .playButton {
+  transform: scale(1.1);
+  background: #ffffff;
+}
+
 .videoInfo {
-  padding: 0 0 1rem 0.5rem; /* Slight left offset for alignment */
-  background: transparent;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.videoBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #15803d;
+  background: #dcfce7;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+
+.checkIcon {
+  color: #16a34a;
 }
 
 .videoInfo h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 800;
-  margin-bottom: 0;
-  color: var(--primary);
-}
-.videoInfo p {
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.5;
+  color: #0f172a;
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
 }
 
-@media (max-width: 768px) {
-  .videoSection {
-    padding-bottom: 0 !important;
-  }
+.videoSubtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+}
 
-  .videoGrid {
-    padding-bottom: 2rem !important;
-    margin-bottom: 0 !important;
-    gap: 1rem;
-  }
-
+@media (max-width: 640px) {
   .videoItem {
-    flex: 0 0 260px; /* Slightly narrower for better mobile fit */
+    flex: 0 0 260px;
     min-width: 260px;
   }
 
-  .videoWrapper {
-    aspect-ratio: 9/16; /* Portrait ratio for mobile success stories */
-  }
-  
-  .sectionHeader h2 {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .sectionHeader p {
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .subTitle {
-    text-align: center;
+  .playButton {
+    width: 48px;
+    height: 48px;
   }
 }

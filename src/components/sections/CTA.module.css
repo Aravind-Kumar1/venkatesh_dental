@@ -1,75 +1,156 @@
-.strongCTA {
-  background: var(--primary);
-  color: white;
+.ctaSection {
+  background: #ffffff;
+  padding: 1.75rem 0;
+  position: relative;
+}
+
+.ctaCard {
+  background: linear-gradient(135deg, #1A4996 0%, #123475 60%, #0c2352 100%);
+  border-radius: 1.75rem;
+  padding: 2.75rem 2.25rem;
+  color: #ffffff;
   text-align: center;
-  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -12px rgba(26, 73, 150, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.strongCTA h2 {
-  font-size: 3.2rem;
+.ctaCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.ctaCard h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
 }
 
-.strongCTA p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 3rem;
-  max-width: 700px;
+.ctaCard p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(241, 245, 249, 0.9);
+  margin-bottom: 2rem;
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.ctaBtnGroup {
+.infoStrip {
   display: flex;
-  gap: 1.5rem;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
 }
 
-.btnSecondary {
-  padding: 0.875rem 2rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  display: flex;
+.infoPill {
+  display: inline-flex;
   align-items: center;
-  font-size: 1rem;
-  gap: 0.75rem;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
-  border: 1px solid transparent;
-  background: white;
-  color: var(--primary);
-  box-shadow: var(--shadow-md);
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.btnSecondary:hover {
+.btnRow {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.callBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #ffffff;
+  color: var(--primary-dark);
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.95rem 1.85rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.callBtn:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  background: var(--gray-50);
+  background: #f8fafc;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.bookBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.95rem 1.85rem;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.bookBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-  .ctaBtnGroup {
+  .ctaCard {
+    padding: 3rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .btnRow {
     flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media (max-width: 640px) {
-  .strongCTA {
-    padding: 3.5rem 1rem;
+    width: 100%;
   }
 
-  .strongCTA h2 {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-  }
-
-  .strongCTA p {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .btnSecondary {
+  .callBtn,
+  .bookBtn {
     width: 100%;
     justify-content: center;
   }

@@ -1,33 +1,51 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { Phone } from "lucide-react";
+import { Phone, Calendar, ArrowRight, Clock, MapPin, ShieldCheck } from "lucide-react";
 import styles from "./CTA.module.css";
 
 export default function CTA() {
   return (
-    <section className={styles.strongCTA}>
+    <section className={styles.ctaSection}>
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
-          <h2>Book Your Appointment Today</h2>
-          <p>
-            Don’t ignore dental pain or delay your treatment. Visit the best dental clinic in 
-            Sanath Nagar for expert and painless dental care.
-          </p>
-          <div className={styles.ctaBtnGroup}>
-            <a href="tel:+919676316416" className={styles.btnSecondary}>
-              <Phone size={20} /> Call Now
-            </a>
-            <a href="#contact" className={styles.btnSecondary} style={{ background: "transparent", color: "white", borderColor: "white" }}>
-              Book Appointment
-            </a>
+        <div className={styles.ctaCard}>
+          <div className={styles.cardContent}>
+            <div className={styles.ctaBadge}>
+              <ShieldCheck size={15} />
+              <span>Same-Day Emergency Consultations Available</span>
+            </div>
+
+            <h2>Don't Endure Tooth Pain — Get Painless Relief Today</h2>
+            
+            <p>
+              Whether it's a sudden severe toothache, an impacted wisdom tooth, or a desired smile makeover, Dr. Venkateswara Kalicherla is here to help with 100% painless care.
+            </p>
+
+            <div className={styles.infoStrip}>
+              <div className={styles.infoPill}>
+                <Clock size={16} />
+                <span>Open Daily: 10:00 AM – 9:00 PM</span>
+              </div>
+              <div className={styles.infoPill}>
+                <MapPin size={16} />
+                <span>Above Ratnadeep, Sanath Nagar</span>
+              </div>
+            </div>
+
+            <div className={styles.btnRow}>
+              <a href="tel:+919676316416" className={styles.callBtn}>
+                <Phone size={18} />
+                <span>Call +91 96763 16416</span>
+              </a>
+
+              <a href="#contact" className={styles.bookBtn}>
+                <Calendar size={18} />
+                <span>Book Appointment Online</span>
+                <ArrowRight size={16} />
+              </a>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
