@@ -17,6 +17,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* prevent badges escaping the column */
 }
 
 /* Image container is position:relative so Next.js fill works */
@@ -238,22 +239,14 @@
 
 @media (max-width: 640px) {
   .imageContainer {
-    min-height: 320px;
+    min-height: 300px;
     border-radius: 1.25rem;
   }
 
+  /* ── Hide floating badges on mobile — they overflow the image ── */
   .experienceBadge,
   .patientsBadge {
-    padding: 0.6rem 0.85rem;
-    border-radius: 0.85rem;
-  }
-
-  .badgeText strong {
-    font-size: 0.9rem;
-  }
-
-  .badgeText span {
-    font-size: 0.68rem;
+    display: none;
   }
 
   .aboutActions {
@@ -267,3 +260,63 @@
     justify-content: center;
   }
 }
+
+/* ── Mobile stat chips shown below image ─────────────────────── */
+.mobileStats {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .mobileStats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.85rem;
+  }
+
+  .mobileStat {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #ffffff;
+    border: 1px solid rgba(26, 73, 150, 0.12);
+    border-radius: 0.85rem;
+    padding: 0.7rem 0.85rem;
+    box-shadow: 0 4px 12px rgba(26, 73, 150, 0.08);
+  }
+
+  .mobileStatIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .mobileStatIcon.gold {
+    background: #fef3c7;
+    color: #d97706;
+  }
+
+  .mobileStatIcon.blue {
+    background: #dbeafe;
+    color: var(--primary);
+  }
+
+  .mobileStatText strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+  }
+
+  .mobileStatText span {
+    font-size: 0.68rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+}
+

@@ -14,6 +14,7 @@
   width: 100%;
 }
 
+/* ── Full-screen video background (desktop) ─────────── */
 .videoBackground {
   position: absolute;
   inset: 0;
@@ -38,12 +39,13 @@
   background: linear-gradient(
     90deg,
     rgba(9, 23, 47, 0.94) 0%,
-    rgba(9, 23, 47, 0.85) 50%,
-    rgba(9, 23, 47, 0.6) 100%
+    rgba(9, 23, 47, 0.80) 55%,
+    rgba(9, 23, 47, 0.55) 100%
   );
   z-index: 2;
 }
 
+/* ── Content layer ──────────────────────────────────── */
 .slideContent {
   position: relative;
   width: 100%;
@@ -68,12 +70,13 @@
   align-items: flex-start;
 }
 
+/* ── Badges ─────────────────────────────────────────── */
 .badgeGroup {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.35rem;
 }
 
 .badge {
@@ -117,13 +120,14 @@
   opacity: 0.85;
 }
 
+/* ── Heading ─────────────────────────────────────────── */
 .title {
-  font-size: clamp(2.35rem, 5vw, 3.75rem);
+  font-size: clamp(2.1rem, 5vw, 3.75rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.15;
   letter-spacing: -0.03em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.1rem;
 }
 
 .highlightText {
@@ -134,11 +138,11 @@
 }
 
 .description {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
   color: rgba(241, 245, 249, 0.9);
-  margin-bottom: 1.75rem;
-  max-width: 580px;
+  margin-bottom: 1.5rem;
+  max-width: 560px;
 }
 
 .description strong {
@@ -146,11 +150,12 @@
   font-weight: 700;
 }
 
+/* ── Quick features ─────────────────────────────────── */
 .quickFeatures {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
-  margin-bottom: 2.25rem;
+  gap: 1.1rem;
+  margin-bottom: 2rem;
 }
 
 .featureItem {
@@ -167,11 +172,12 @@
   flex-shrink: 0;
 }
 
+/* ── Buttons ─────────────────────────────────────────── */
 .btnGroup {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .btn {
@@ -179,7 +185,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.95rem 1.75rem;
+  padding: 0.9rem 1.65rem;
   font-size: 0.975rem;
   font-weight: 700;
   border-radius: 9999px;
@@ -222,57 +228,112 @@
   transform: translateY(-2px);
 }
 
+/* ── Mobile video card (hidden on desktop) ─────────── */
 .mobileVideoCard {
   display: none;
 }
 
+/* ══════════════════════════════════════════════════════
+   MOBILE  ≤ 768px
+   ══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
+  /* Keep dark gradient background on mobile (no video) */
   .hero {
-    min-height: auto;
+    min-height: 100svh;
+    background: linear-gradient(160deg, #09172f 0%, #0e2660 60%, #1A4996 100%);
   }
 
   .heroHome {
-    min-height: auto;
+    min-height: 100svh;
+    align-items: flex-start;
   }
 
-  .slideContent {
-    padding: 6.5rem 0 3.5rem;
-  }
-
+  /* Hide the desktop fullscreen video */
   .videoBackground {
     display: none;
   }
 
-  .hero {
-    background: linear-gradient(180deg, #09172f 0%, #123475 100%);
+  /* Push content below navbar */
+  .slideContent {
+    padding: 5.5rem 0 3rem;
+    align-items: flex-start;
   }
 
-  .mobileVideoCard {
-    display: block;
+  /* Text fills full width */
+  .textWrapper {
+    max-width: 100%;
+  }
+
+  .contentMotion {
+    align-items: flex-start;
     width: 100%;
-    margin-top: 2rem;
-    border-radius: 1.25rem;
-    overflow: hidden;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
-  .mobileVideoElement {
-    width: 100%;
-    height: auto;
-    display: block;
+  /* Tighter heading on small screens */
+  .title {
+    font-size: clamp(1.85rem, 8.5vw, 2.6rem);
+    margin-bottom: 0.9rem;
   }
 
+  .description {
+    font-size: 0.975rem;
+    margin-bottom: 1.25rem;
+    max-width: 100%;
+  }
+
+  .badgeGroup {
+    margin-bottom: 1rem;
+  }
+
+  .quickFeatures {
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .featureItem {
+    font-size: 0.825rem;
+  }
+
+  /* Stack buttons full width */
   .btnGroup {
     flex-direction: column;
     width: 100%;
+    gap: 0.75rem;
   }
 
   .btn {
     width: 100%;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
   }
 
-  .quickFeatures {
-    gap: 0.75rem;
+  /* Small clinic video card shown below text */
+  .mobileVideoCard {
+    display: block;
+    width: 100%;
+    margin-top: 1.75rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    max-height: 240px;
+  }
+
+  .mobileVideoElement {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Extra small */
+@media (max-width: 400px) {
+  .slideContent {
+    padding: 5rem 0 2.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
   }
 }

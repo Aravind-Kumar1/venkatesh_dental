@@ -31,7 +31,7 @@ export default function About() {
                 priority
               />
               
-              {/* Floating Badge — bottom left */}
+              {/* Floating Badge — bottom left (desktop only) */}
               <div className={styles.experienceBadge}>
                 <Award size={24} className={styles.badgeIcon} />
                 <div className={styles.badgeText}>
@@ -40,12 +40,34 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Floating Badge — top right */}
+              {/* Floating Badge — top right (desktop only) */}
               <div className={styles.patientsBadge}>
                 <Users size={20} className={styles.patientsIcon} />
                 <div className={styles.badgeText}>
                   <strong>15,000+</strong>
                   <span>Healthy Smiles Restored</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile-only stat chips — replaces floating badges on small screens */}
+            <div className={styles.mobileStats}>
+              <div className={styles.mobileStat}>
+                <div className={`${styles.mobileStatIcon} ${styles.gold}`}>
+                  <Award size={18} />
+                </div>
+                <div className={styles.mobileStatText}>
+                  <strong>18+ Years</strong>
+                  <span>Clinical Excellence</span>
+                </div>
+              </div>
+              <div className={styles.mobileStat}>
+                <div className={`${styles.mobileStatIcon} ${styles.blue}`}>
+                  <Users size={18} />
+                </div>
+                <div className={styles.mobileStatText}>
+                  <strong>15,000+</strong>
+                  <span>Smiles Restored</span>
                 </div>
               </div>
             </div>
