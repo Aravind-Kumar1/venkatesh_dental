@@ -89,6 +89,9 @@ export default function Gallery() {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => {
+              setTimeout(() => setIsPaused(false), 2000);
+            }}
           >
             {[...transformations, ...transformations].map((item, index) => (
               <div
@@ -107,9 +110,10 @@ export default function Gallery() {
                       src={item.before}
                       alt={`${item.title} Before Treatment`}
                       fill
-                      sizes="180px"
+                      sizes="(max-width: 640px) 150px, 180px"
                       className={styles.galleryImage}
-                      loading="lazy"
+                      priority={index < 4}
+                      loading={index < 4 ? "eager" : undefined}
                     />
                     <span className={styles.beforeTag}>Before</span>
                   </div>
@@ -120,9 +124,10 @@ export default function Gallery() {
                       src={item.after}
                       alt={`${item.title} After Treatment`}
                       fill
-                      sizes="180px"
+                      sizes="(max-width: 640px) 150px, 180px"
                       className={styles.galleryImage}
-                      loading="lazy"
+                      priority={index < 4}
+                      loading={index < 4 ? "eager" : undefined}
                     />
                     <span className={styles.afterTag}>After</span>
                   </div>
@@ -175,6 +180,7 @@ export default function Gallery() {
                     fill
                     sizes="(max-width: 640px) 90vw, 320px"
                     className={styles.modalImage}
+                    priority
                   />
                   <span className={styles.modalBeforeBadge}>Before Treatment</span>
                 </div>
@@ -189,6 +195,7 @@ export default function Gallery() {
                     fill
                     sizes="(max-width: 640px) 90vw, 320px"
                     className={styles.modalImage}
+                    priority
                   />
                   <span className={styles.modalAfterBadge}>After Result</span>
                 </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Star, CheckCircle2, ExternalLink } from "lucide-react";
+import { Star, CheckCircle2, ExternalLink, Play, Pause } from "lucide-react";
 import styles from "./Testimonials.module.css";
 
 const testimonials = [
@@ -75,71 +75,87 @@ export default function Testimonials() {
             </p>
           </div>
 
-          <div className={styles.scoreCard}>
-            <div className={styles.scoreHeader}>
-              <GoogleIcon />
-              <div className={styles.scoreStars}>
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={s} size={16} fill="#f59e0b" stroke="none" />
-                ))}
+          <div className={styles.scoreAndControls}>
+            <div className={styles.scoreCard}>
+              <div className={styles.scoreHeader}>
+                <GoogleIcon />
+                <div className={styles.scoreStars}>
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={s} size={16} fill="#f59e0b" stroke="none" />
+                  ))}
+                </div>
               </div>
+              <div className={styles.scoreNumber}>
+                <strong>5.0</strong>
+                <span>/ 5.0</span>
+              </div>
+              <p className={styles.scoreText}>Based on 399+ verified patient reviews</p>
+              <a 
+                href={googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.viewGoogleBtn}
+              >
+                <span>View All on Google</span>
+                <ExternalLink size={14} />
+              </a>
             </div>
-            <div className={styles.scoreNumber}>
-              <strong>5.0</strong>
-              <span>/ 5.0</span>
-            </div>
-            <p className={styles.scoreText}>Based on 199+ verified patient reviews</p>
-            <a 
-              href={googleReviewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.viewGoogleBtn}
+
+            <button
+              className={styles.pauseBtn}
+              onClick={() => setIsPaused(!isPaused)}
+              aria-label={isPaused ? "Resume auto-scroll" : "Pause auto-scroll"}
             >
-              <span>View All on Google</span>
-              <ExternalLink size={14} />
-            </a>
+              {isPaused ? <Play size={14} /> : <Pause size={14} />}
+              <span>{isPaused ? "Play Reviews" : "Pause Reel"}</span>
+            </button>
           </div>
         </div>
         
-        {/* Infinite Scroll Reel */}
-        <div 
-          className={`${styles.testimonialGrid} ${isPaused ? styles.paused : ""}`}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={() => setIsPaused(true)}
-        >
-          {[...testimonials, ...testimonials].map((t, index) => (
-            <div 
-              key={`${t.name}-${index}`} 
-              className={styles.testimonialCard}
-            >
-              <div className={styles.cardHeader}>
-                <div className={styles.profileInfo}>
-                  <div className={styles.avatar} style={{ backgroundColor: t.color }}>
-                    {t.initial}
+        {/* Infinite Scroll Reel Viewport */}
+        <div className={styles.reelViewport}>
+          <div 
+            className={`${styles.testimonialGrid} ${isPaused ? styles.paused : ""}`}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => {
+              setTimeout(() => setIsPaused(false), 2000);
+            }}
+          >
+            {[...testimonials, ...testimonials].map((t, index) => (
+              <div 
+                key={`${t.name}-${index}`} 
+                className={styles.testimonialCard}
+              >
+                <div className={styles.cardHeader}>
+                  <div className={styles.profileInfo}>
+                    <div className={styles.avatar} style={{ backgroundColor: t.color }}>
+                      {t.initial}
+                    </div>
+                    <div className={styles.meta}>
+                      <h4>{t.name}</h4>
+                      <span className={styles.date}>{t.date}</span>
+                    </div>
                   </div>
-                  <div className={styles.meta}>
-                    <h4>{t.name}</h4>
-                    <span className={styles.date}>{t.date}</span>
+                  <div className={styles.googleBrand}>
+                    <GoogleIcon />
                   </div>
                 </div>
-                <div className={styles.googleBrand}>
-                  <GoogleIcon />
+
+                <div className={styles.stars}>
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={`star-${index}-${s}`} size={16} fill="#f59e0b" stroke="none" />
+                  ))}
+                  <span className={styles.verifiedText}>
+                    <CheckCircle2 size={13} className={styles.verifiedIcon} /> Verified Patient
+                  </span>
                 </div>
-              </div>
 
-              <div className={styles.stars}>
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={`star-${index}-${s}`} size={16} fill="#f59e0b" stroke="none" />
-                ))}
-                <span className={styles.verifiedText}>
-                  <CheckCircle2 size={13} className={styles.verifiedIcon} /> Verified Patient
-                </span>
+                <p className={styles.testimonialText}>"{t.text}"</p>
               </div>
-
-              <p className={styles.testimonialText}>"{t.text}"</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

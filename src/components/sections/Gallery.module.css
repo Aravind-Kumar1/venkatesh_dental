@@ -103,6 +103,11 @@
   width: max-content;
   animation: scrollGallery 32s linear infinite;
   padding: 0.5rem 0 1.5rem;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .transformationGrid:hover,
@@ -136,21 +141,24 @@
   border-color: rgba(26, 73, 150, 0.3);
 }
 
-/* ── Before/After image grid ──────────────────────────── */
+/* ── Before/After image comparison container (Flexbox for 100% reliable height) ── */
 .comparisonContainer {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   background: #e2e8f0;
   height: 220px;
+  min-height: 220px;
+  width: 100%;
   overflow: hidden;
 }
 
 /* Each half is a positioned box for Next.js fill images */
 .comparisonItem {
   position: relative;      /* ← required for Next.js fill */
-  width: 100%;
+  flex: 1 1 50%;
+  width: 50%;
   height: 100%;
+  min-height: 100%;
   overflow: hidden;
 }
 

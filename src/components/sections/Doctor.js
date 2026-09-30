@@ -9,9 +9,9 @@ import doctorImage from "../../../assets/images/venky_doc2.png";
 export default function Doctor() {
   const credentials = [
     { title: "Specialization", value: "Chief Dental Surgeon & Implantologist" },
-    { title: "Experience", value: "18+ Years in Sanath Nagar, Hyderabad" },
+    { title: "Experience", value: "15+ Years in Sanath Nagar, Hyderabad" },
     { title: "Expertise", value: "Painless RCT, Implants & Cosmetic Dentistry" },
-    { title: "Patient Satisfaction", value: "5.0 ★ Rating across 199+ Google Reviews" }
+    { title: "Patient Satisfaction", value: "5.0 ★ Rating across 399+ Google Reviews" }
   ];
 
   const highlights = [
@@ -35,7 +35,7 @@ export default function Doctor() {
             </div>
 
             <p className={styles.bioText}>
-              With over 18 years of clinical mastery, <strong>Dr. Venkateswara Kalicherla</strong> is renowned across Hyderabad for transforming dental care into an anxiety-free, gentle experience.
+              With over 15 years of clinical mastery, <strong>Dr. Venkateswara Kalicherla</strong> is renowned across Hyderabad for transforming dental care into an anxiety-free, gentle experience.
             </p>
 
             <p className={styles.bioSubtext}>
@@ -99,7 +99,7 @@ export default function Doctor() {
                 <ShieldCheck size={18} className={styles.shieldIcon} />
                 <div>
                   <strong>Certified Dental Specialist</strong>
-                  <p>18+ Years Trust</p>
+                  <p>15+ Years Trust</p>
                 </div>
               </div>
             </div>

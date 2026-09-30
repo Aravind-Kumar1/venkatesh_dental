@@ -36,7 +36,8 @@ export default function Navbar() {
               src={logo} 
               alt="Venkateswara Dental Hospital Logo" 
               className={styles.logo} 
-              priority 
+              priority
+              loading="eager"
             />
           </a>
 

@@ -8,12 +8,12 @@ const advantages = [
   {
     icon: <Star size={24} className={styles.starIcon} />,
     title: "5.0-Star Google Rating",
-    description: "Backed by 199+ verified patient reviews celebrating gentle, transparent, and superior clinical care in Sanath Nagar."
+    description: "Backed by 399+ verified patient reviews celebrating gentle, transparent, and superior clinical care in Sanath Nagar."
   },
   {
     icon: <Award size={24} />,
-    title: "18+ Years Medical Expertise",
-    description: "Led by Dr. Venkateswara Kalicherla, who brings nearly two decades of precision dental surgery and implantology."
+    title: "15+ Years Medical Expertise",
+    description: "Led by Dr. Venkateswara Kalicherla, who brings over 15 years of precision dental surgery and implantology."
   },
   {
     icon: <Zap size={24} />,

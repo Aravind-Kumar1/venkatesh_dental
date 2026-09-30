@@ -13,23 +13,25 @@ export default function Footer() {
       <div className={`container ${styles.footerGrid}`}>
         {/* Brand Column */}
         <div className={styles.footerBrand}>
-          <Image 
-            src={logo} 
-            alt="Venkateswara Dental Hospital Logo" 
-            className={styles.footerLogo} 
-          />
+          <div className={styles.footerLogoWrap}>
+            <Image 
+              src={logo} 
+              alt="Venkateswara Dental Hospital Logo" 
+              className={styles.footerLogo} 
+            />
+          </div>
           <p className={styles.brandDesc}>
             Venkateswara Dental Hospital is Sanath Nagar's trusted destination for painless root canal treatments, precision dental implants, and cosmetic smile care under the leadership of Dr. Venkateswara Kalicherla.
           </p>
 
           <div className={styles.trustBadgesRow}>
-            <span className={styles.footerBadge}><ShieldCheck size={14} /> Est. 2007</span>
+            <span className={styles.footerBadge}><ShieldCheck size={14} /> Est. 2011</span>
             <span className={styles.footerBadge}>5.0 ★ Google Rated</span>
           </div>
 
           <div className={styles.socialLinks}>
             <a 
-              href="https://www.instagram.com/venkateswaradentalhospitals?igsh=MTMweXE3ejI0YjUyNw%3D%3D&utm_source=qr" 
+              href="https://www.instagram.com/doctor_venky_actor?stkn=c21vZjVjZHRsMTdj&utm_source=qr" 
               target="_blank" 
               rel="noopener noreferrer" 
               className={styles.socialIcon} 
@@ -38,7 +40,7 @@ export default function Footer() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
             <a 
-              href="https://www.facebook.com/profile.php?id=61570808755944" 
+              href="https://www.facebook.com/venky.kalicherla" 
               target="_blank" 
               rel="noopener noreferrer" 
               className={styles.socialIcon} 

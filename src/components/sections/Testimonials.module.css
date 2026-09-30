@@ -48,6 +48,13 @@
   line-height: 1.6;
 }
 
+.scoreAndControls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
 /* Score Card */
 .scoreCard {
   background: #ffffff;
@@ -59,6 +66,26 @@
   flex-direction: column;
   align-items: flex-start;
   min-width: 280px;
+}
+
+.pauseBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 0.825rem;
+  font-weight: 700;
+  padding: 0.5rem 0.95rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pauseBtn:hover {
+  background: #e2e8f0;
+  color: var(--primary);
 }
 
 .scoreHeader {
@@ -115,13 +142,44 @@
   color: var(--primary-dark);
 }
 
-/* Reel Track */
+/* ── Scrolling reel container ─────────────────────────── */
+.reelViewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.reelViewport::before,
+.reelViewport::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 5;
+  pointer-events: none;
+}
+.reelViewport::before {
+  left: 0;
+  background: linear-gradient(90deg, #f8fbff 0%, transparent 100%);
+}
+.reelViewport::after {
+  right: 0;
+  background: linear-gradient(270deg, #f8fbff 0%, transparent 100%);
+}
+
+/* Reel Track with GPU acceleration */
 .testimonialGrid {
   display: flex;
   gap: 1.5rem;
   width: max-content;
   animation: scrollReviews 38s linear infinite;
   padding: 0.5rem 0 1.5rem;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .testimonialGrid:hover,
@@ -145,10 +203,14 @@
   display: flex;
   flex-direction: column;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .testimonialCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) translateZ(0);
   box-shadow: 0 16px 32px -8px rgba(26, 73, 150, 0.15);
   border-color: rgba(26, 73, 150, 0.3);
 }
@@ -228,13 +290,30 @@
 }
 
 @media (max-width: 640px) {
-  .testimonialCard {
-    flex: 0 0 290px;
-    min-width: 290px;
-    padding: 1.25rem;
+  .scoreAndControls {
+    width: 100%;
+    align-items: stretch;
+    gap: 0.65rem;
   }
 
   .scoreCard {
     width: 100%;
+    min-width: 0;
+  }
+
+  .pauseBtn {
+    align-self: flex-start;
+  }
+
+  .testimonialCard {
+    flex: 0 0 290px;
+    min-width: 290px;
+    max-width: 82vw;
+    padding: 1.25rem;
+  }
+
+  .reelViewport::before,
+  .reelViewport::after {
+    width: 24px;
   }
 }

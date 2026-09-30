@@ -35,7 +35,7 @@ export default function About() {
               <div className={styles.experienceBadge}>
                 <Award size={24} className={styles.badgeIcon} />
                 <div className={styles.badgeText}>
-                  <strong>18+ Years</strong>
+                  <strong>15+ Years</strong>
                   <span>Clinical Excellence</span>
                 </div>
               </div>
@@ -57,7 +57,7 @@ export default function About() {
                   <Award size={18} />
                 </div>
                 <div className={styles.mobileStatText}>
-                  <strong>18+ Years</strong>
+                  <strong>15+ Years</strong>
                   <span>Clinical Excellence</span>
                 </div>
               </div>
@@ -79,7 +79,7 @@ export default function About() {
             <h2>Premier Dental Care in Sanath Nagar, Hyderabad</h2>
             
             <p className={styles.leadText}>
-              Founded in 2007 by <strong>Dr. Venkateswara Kalicherla</strong>, Venkateswara Dental Hospital has earned its reputation as the benchmark for painless, reliable dental healthcare.
+              Founded in 2011 by <strong>Dr. Venkateswara Kalicherla</strong>, Venkateswara Dental Hospital has earned its reputation as the benchmark for painless, reliable dental healthcare.
             </p>
 
             <p className={styles.bodyText}>

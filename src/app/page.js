@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -19,14 +19,6 @@ import TimedPopup from "@/components/shared/TimedPopup";
 import styles from "./page.module.css";
 
 export default function Page() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return <div className="mesh-bg" />;
-
   return (
     <div className={styles.page}>
       <div className="mesh-bg" />

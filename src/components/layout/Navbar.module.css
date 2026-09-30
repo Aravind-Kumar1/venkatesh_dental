@@ -28,14 +28,25 @@
 }
 
 .logoWrap {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  margin-right: 1rem;
+  margin-right: 0.85rem;
+  background: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: all 0.25s ease;
+}
+
+.logoWrap:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(26, 73, 150, 0.2);
 }
 
 .logo {
-  height: 46px;
+  height: 40px;
   width: auto;
   object-fit: contain;
   transition: transform 0.2s ease;
@@ -404,7 +415,25 @@
     display: inline-flex;
   }
 
+  .logoWrap {
+    padding: 0.25rem 0.65rem;
+    margin-right: 0.5rem;
+  }
+
   .logo {
-    height: 40px;
+    height: 34px;
+    max-width: 175px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoWrap {
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.25rem;
+  }
+
+  .logo {
+    height: 30px;
+    max-width: 140px;
   }
 }

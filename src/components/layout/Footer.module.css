@@ -22,10 +22,21 @@
   gap: 1.25rem;
 }
 
+.footerLogoWrap {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 0.45rem 1rem;
+  border-radius: 0.85rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+}
+
 .footerLogo {
-  height: 52px;
+  height: 42px;
   width: auto;
-  filter: brightness(0) invert(1);
+  object-fit: contain;
+  display: block;
 }
 
 .brandDesc {

@@ -1,10 +1,10 @@
 export default function sitemap() {
   return [
     {
-      url: 'https://venkateshwaradental.com',
+      url: 'https://www.venkateswaradentals.com',
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
+      changeFrequency: 'weekly',
+      priority: 1.0,
     },
   ]
 }

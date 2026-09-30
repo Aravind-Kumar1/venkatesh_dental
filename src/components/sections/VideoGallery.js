@@ -83,6 +83,9 @@ export default function VideoGallery() {
             onMouseEnter={() => setIsPausedHover(true)}
             onMouseLeave={() => setIsPausedHover(false)}
             onTouchStart={() => setIsPausedHover(true)}
+            onTouchEnd={() => {
+              setTimeout(() => setIsPausedHover(false), 2000);
+            }}
           >
             {[...videos, ...videos].map((video, index) => (
               <div key={`${video.id}-${index}`} className={styles.videoItem}>

@@ -7,7 +7,7 @@ import styles from "./FAQ.module.css";
 const faqs = [
   { 
     q: "Who is the chief dentist at Venkateswara Dental Hospital?", 
-    a: "Dr. Venkateswara Kalicherla (BDS) is the Chief Dental Surgeon and Implantologist, possessing over 18 years of clinical expertise treating complex dental conditions with painless, cutting-edge techniques." 
+    a: "Dr. Venkateswara Kalicherla (BDS) is the Chief Dental Surgeon and Implantologist, possessing over 15 years of clinical expertise treating complex dental conditions with painless, cutting-edge techniques." 
   },
   { 
     q: "Is root canal treatment (RCT) really painless?", 

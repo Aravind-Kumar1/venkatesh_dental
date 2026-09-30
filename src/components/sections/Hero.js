@@ -40,12 +40,12 @@ const Hero = () => {
                 <div className={styles.badgeGroup}>
                   <span className={styles.badge}>
                     <Award size={15} className={styles.badgeIcon} />
-                    <span>Trusted Dental Care Since 2007</span>
+                    <span>Trusted Dental Care Since 2011</span>
                   </span>
                   <span className={styles.ratingBadge}>
                     <Star size={14} fill="#f59e0b" stroke="none" />
                     <strong>5.0</strong>
-                    <span>(199+ Reviews)</span>
+                    <span>(399+ Reviews)</span>
                   </span>
                 </div>
 
