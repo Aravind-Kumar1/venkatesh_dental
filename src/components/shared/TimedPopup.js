@@ -46,6 +46,18 @@ export default function TimedPopup() {
     };
   }, []);
 
+  // Lock body scroll when popup is open so mobile touch scrolls the modal instead of background
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isVisible]);
+
   const handleClose = () => {
     setIsVisible(false);
     if (typeof window !== "undefined") {
