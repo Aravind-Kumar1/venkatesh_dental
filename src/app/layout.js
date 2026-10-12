@@ -1,5 +1,6 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "@/components/shared/ScrollToTop";
 
 const outfit = Outfit({ subsets: ["latin"], display: "swap" });
 
@@ -282,6 +283,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#1A4996" />
       </head>
       <body suppressHydrationWarning>
+        <ScrollToTop />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

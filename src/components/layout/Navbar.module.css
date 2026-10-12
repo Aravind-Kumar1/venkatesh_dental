@@ -114,6 +114,26 @@
   color: var(--primary);
 }
 
+.navLinkActive {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.navLinkActive::after {
+  width: 100% !important;
+}
+
+.headerScrolled .navLinkActive {
+  color: var(--primary) !important;
+}
+
+.mobileNavActive {
+  color: var(--primary) !important;
+  font-weight: 800 !important;
+  background: var(--primary-light) !important;
+  border-radius: 0.75rem;
+}
+
 .navAction {
   display: flex;
   align-items: center;

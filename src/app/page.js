@@ -9,9 +9,7 @@ import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import VideoGallery from "@/components/sections/VideoGallery";
-import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
-import Contact from "@/components/sections/Contact";
 import CTA from "@/components/sections/CTA";
 import FAQ from "@/components/sections/FAQ";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
@@ -31,10 +29,8 @@ export default function Page() {
         <Services />
         <WhyChooseUs />
         <VideoGallery />
-        <Gallery />
         <Testimonials />
         <CTA />
-        <Contact />
         <FAQ />
       </main>
 

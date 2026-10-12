@@ -1,0 +1,299 @@
+/* Contact Page */
+.page {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Page Hero */
+.pageHero {
+  padding: 130px 0 60px;
+  background: linear-gradient(160deg, #0c2352 0%, #1A4996 50%, #065f46 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.pageHero::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: white;
+}
+
+.breadcrumb span {
+  color: rgba(255,255,255,0.4);
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #34d399 0%, #a7f3d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.8);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+/* Quick Info Cards */
+.quickInfo {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.infoCard {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 180px;
+  transition: all 0.3s ease;
+}
+
+.infoCard:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+
+.infoIcon {
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fbbf24;
+}
+
+.infoCard strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.infoCard span {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/* Emergency Strip */
+.emergencyStrip {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+  padding: 3rem 0;
+  color: white;
+}
+
+.emergencyContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.emergencyText {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.emergencyIcon {
+  color: #34d399;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.emergencyText h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.emergencyText p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+  max-width: 500px;
+}
+
+.emergencyActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.whatsappBtn {
+  background: #25d366;
+  color: white;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.875rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px -4px rgba(37,211,102,0.4);
+}
+
+.whatsappBtn:hover {
+  background: #1dba58;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -6px rgba(37,211,102,0.5);
+}
+
+.callBtn {
+  background: rgba(255,255,255,0.12);
+  color: white;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.875rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+
+.callBtn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+/* Guarantee Strip */
+.guaranteeStrip {
+  padding: 4rem 0;
+  background: var(--primary-light);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.guaranteeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.guaranteeItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+}
+
+.guaranteeItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(26,73,150,0.1);
+}
+
+.guaranteeIcon {
+  width: 42px;
+  height: 42px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.guaranteeItem strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+}
+
+.guaranteeItem p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .pageHero {
+    padding: 110px 0 50px;
+  }
+
+  .quickInfo {
+    flex-direction: column;
+  }
+
+  .infoCard {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .emergencyContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .emergencyText {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .emergencyActions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .whatsappBtn,
+  .callBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

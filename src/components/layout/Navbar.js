@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, Menu, X, Calendar, Clock, MapPin } from "lucide-react";
 import styles from "./Navbar.module.css";
 import logo from "../../../public/icon.png";
@@ -9,6 +11,7 @@ import logo from "../../../public/icon.png";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +21,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -27,11 +29,21 @@ export default function Navbar() {
     }
   }, [mobileMenuOpen]);
 
+  const isActive = (path) => pathname === path;
+
+  const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/gallery", label: "Transformations" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
     <>
       <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
         <div className={`container ${styles.nav}`}>
-          <a href="#home" className={styles.logoWrap} aria-label="Venkateswara Dental Hospital">
+          <Link href="/" className={styles.logoWrap} aria-label="Venkateswara Dental Hospital">
             <Image 
               src={logo} 
               alt="Venkateswara Dental Hospital Logo" 
@@ -39,15 +51,18 @@ export default function Navbar() {
               priority
               loading="eager"
             />
-          </a>
+          </Link>
 
           <nav className={styles.navLinks} aria-label="Main Navigation">
-            <a href="#home" className={styles.navLink}>Home</a>
-            <a href="#about" className={styles.navLink}>About</a>
-            <a href="#services" className={styles.navLink}>Services</a>
-            <a href="#gallery" className={styles.navLink}>Transformations</a>
-            <a href="#testimonials" className={styles.navLink}>Reviews</a>
-            <a href="#contact" className={styles.navLink}>Contact</a>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`${styles.navLink} ${isActive(item.href) ? styles.navLinkActive : ""}`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
           <div className={styles.navAction}>
@@ -56,10 +71,10 @@ export default function Navbar() {
               <span className={styles.phoneText}>+91 96763 16416</span>
             </a>
             
-            <a href="#contact" className={styles.btnPrimary}>
+            <Link href="/contact" className={styles.btnPrimary}>
               <Calendar size={16} />
               <span>Book Appointment</span>
-            </a>
+            </Link>
 
             {/* Mobile Actions */}
             <a href="tel:+919676316416" className={styles.mobilePhoneBtn} aria-label="Call Hospital">
@@ -98,12 +113,16 @@ export default function Navbar() {
         </div>
 
         <div className={styles.mobileNavLinks}>
-          <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
-          <a href="#about" onClick={() => setMobileMenuOpen(false)}>About Clinic</a>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)}>Dental Treatments</a>
-          <a href="#gallery" onClick={() => setMobileMenuOpen(false)}>Smile Gallery</a>
-          <a href="#testimonials" onClick={() => setMobileMenuOpen(false)}>Google Reviews (5.0★)</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact & Location</a>
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={isActive(item.href) ? styles.mobileNavActive : ""}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
 
         <div className={styles.mobileMenuFooter}>
@@ -116,13 +135,13 @@ export default function Navbar() {
             <span>Sanath Nagar, Hyderabad</span>
           </div>
 
-          <a 
-            href="#contact" 
+          <Link 
+            href="/contact" 
             onClick={() => setMobileMenuOpen(false)}
             className={styles.mobileAppointmentBtn}
           >
             <Calendar size={18} /> Book Appointment
-          </a>
+          </Link>
 
           <a 
             href="tel:+919676316416"

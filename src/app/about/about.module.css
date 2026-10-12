@@ -1,0 +1,218 @@
+/* About Page */
+.page {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Page Hero */
+.pageHero {
+  padding: 130px 0 60px;
+  background: linear-gradient(160deg, #0c2352 0%, #1A4996 55%, #2155ab 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.pageHero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pageHero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -40px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: white;
+}
+
+.breadcrumb span {
+  color: rgba(255,255,255,0.5);
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #f59e0b 0%, #fde68a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.82);
+  max-width: 650px;
+  margin-bottom: 2.5rem;
+}
+
+.heroStats {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  min-width: 110px;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-3px);
+}
+
+.statCard strong {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fbbf24;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.statCard span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* CTA Strip */
+.ctaStrip {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+}
+
+.ctaContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.ctaContent h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.ctaContent p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #0f172a;
+  padding: 0.875rem 2rem;
+  border-radius: 0.875rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px -5px rgba(245,158,11,0.5);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -6px rgba(245,158,11,0.55);
+}
+
+.btnSecondary {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 0.875rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+
+.btnSecondary:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .pageHero {
+    padding: 110px 0 50px;
+  }
+
+  .heroStats {
+    gap: 0.75rem;
+  }
+
+  .statCard {
+    padding: 0.75rem 1rem;
+    min-width: 90px;
+  }
+
+  .ctaContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ctaButtons {
+    justify-content: center;
+    width: 100%;
+  }
+}

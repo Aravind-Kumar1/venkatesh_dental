@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Phone, MapPin, Mail, Clock, Globe, ExternalLink, Calendar, ShieldCheck } from "lucide-react";
 import logo from "../../../public/icon.png";
 import mapImg from "../../../assets/images/location_map.png";
@@ -55,13 +56,12 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4>Quick Navigation</h4>
           <ul className={styles.footerLinks}>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Hospital</a></li>
-            <li><a href="#doctor">Dr. Venkateswara</a></li>
-            <li><a href="#services">Specialized Services</a></li>
-            <li><a href="#gallery">Smile Transformations</a></li>
-            <li><a href="#testimonials">Google Reviews (5.0★)</a></li>
-            <li><a href="#contact">Book Appointment</a></li>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/about">About Hospital</Link></li>
+            <li><Link href="/about#doctor">Dr. Venkateswara</Link></li>
+            <li><Link href="/services">Specialized Services</Link></li>
+            <li><Link href="/gallery">Smile Transformations</Link></li>
+            <li><Link href="/contact">Book Appointment</Link></li>
           </ul>
         </div>
 
@@ -69,13 +69,13 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4>Dental Treatments</h4>
           <ul className={styles.footerLinks}>
-            <li><a href="#services">Painless Root Canal (RCT)</a></li>
-            <li><a href="#services">Permanent Dental Implants</a></li>
-            <li><a href="#services">Laser Teeth Whitening</a></li>
-            <li><a href="#services">Cosmetic Smile Designing</a></li>
-            <li><a href="#services">Invisible Aligners</a></li>
-            <li><a href="#services">Pediatric Kids Dentistry</a></li>
-            <li><a href="#services">Wisdom Tooth Removal</a></li>
+            <li><Link href="/services">Painless Root Canal (RCT)</Link></li>
+            <li><Link href="/services">Permanent Dental Implants</Link></li>
+            <li><Link href="/services">Laser Teeth Whitening</Link></li>
+            <li><Link href="/services">Cosmetic Smile Designing</Link></li>
+            <li><Link href="/services">Invisible Aligners</Link></li>
+            <li><Link href="/services">Pediatric Kids Dentistry</Link></li>
+            <li><Link href="/services">Wisdom Tooth Removal</Link></li>
           </ul>
         </div>
 
@@ -143,7 +143,7 @@ export default function Footer() {
           <div className={styles.bottomLinks}>
             <span>Sanath Nagar's Painless Dental Center</span>
             <span>•</span>
-            <a href="#contact">Emergency Booking</a>
+            <Link href="/contact">Emergency Booking</Link>
           </div>
         </div>
       </div>
